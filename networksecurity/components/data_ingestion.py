@@ -29,19 +29,35 @@ class DataIngestion:
     
     def export_collection_as_dataframe(self):
         try:
-            database_name=self.data_ingestion_config.database_name
-            collection_name=self.data_ingestion_config.collection_name
-            self.mongo_client=pymongo.MongoClient(MONGO_DB_URL)
-            collection=self.mongo_client[database_name][collection_name]
+            database_name = self.data_ingestion_config.database_name
+            collection_name = self.data_ingestion_config.collection_name
 
-            df=pd.DataFrame(list(collection.find()))
-            if "_id" in df.columns.to_list():
-                df=df.drop(columns=["_id"],axis=1)
+            print("Database:", database_name)
+            print("Collection:", collection_name)
+
+            self.mongo_client = pymongo.MongoClient(MONGO_DB_URL)
+
+            collection = self.mongo_client[database_name][collection_name]
+
+            print("Total Documents:", collection.count_documents({}))
+
+            records = list(collection.find())
+
+            print("Records fetched:", len(records))
+
+            df = pd.DataFrame(records)
+
+            print("DataFrame Shape:", df.shape)
+
+            if "_id" in df.columns:
+               df = df.drop(columns=["_id"])
 
             df.replace({"na": np.nan}, inplace=True)
+
             return df
+
         except Exception as e:
-            raise NetworkSecurityException(e,sys)
+          raise NetworkSecurityException(e, sys)
         
 
     def export_data_into_feature_store(self,dataframe: pd.DataFrame):
