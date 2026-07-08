@@ -1,0 +1,13 @@
+[2026-07-08 13:55:55,522 ] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+[2026-07-08 13:55:55,522 ] 107 dagshub - INFO - Accessing as satyam1353
+[2026-07-08 13:55:56,751 ] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/repos/satyam1353/NetworkSecurity "HTTP/1.1 200 OK"
+[2026-07-08 13:55:57,877 ] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+[2026-07-08 13:55:57,879 ] 107 dagshub - INFO - Initialized MLflow to track repo "satyam1353/NetworkSecurity"
+[2026-07-08 13:55:57,879 ] 107 dagshub - INFO - Repository satyam1353/NetworkSecurity initialized!
+[2026-07-08 13:59:50,152 ] 37 root - INFO - start data Ingestion
+[2026-07-08 14:04:20,919 ] 81 root - INFO - Performed train test split on the dataframe
+[2026-07-08 14:04:20,919 ] 83 root - INFO - Exited split_data_as_train_test method of Data_Ingestion class
+[2026-07-08 14:04:20,920 ] 89 root - INFO - Exporting train and test file path.
+[2026-07-08 14:04:21,084 ] 98 root - INFO - Exported train and test file path
+[2026-07-08 14:04:21,084 ] 40 root - INFO - Data Ingestion completed and artifact: DataIngestionArtifact(trained_file_path='Artifacts\\07_08_2026_13_55_50\\data_ingestion\\ingested\\train.csv', test_file_path='Artifacts\\07_08_2026_13_55_50\\data_ingestion\\ingested\\test.csv')
+[2026-07-08 14:04:21,149 ] 48 root - INFO - Initiate the data validation
